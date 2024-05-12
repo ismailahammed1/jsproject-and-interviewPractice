@@ -6,13 +6,11 @@ let counter = 0;
 btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
         const calculet=e.currentTarget.classList;
-      if (calculet.contains('Decrease')) {
-        counter--;
-      }
       if (calculet.contains('Increase')) {
         counter++;
-      }
-      if (calculet.contains('Reset')) {
+      } else if(calculet.contains('Decrease')) {
+        counter--;
+      }else{
         counter=0;
       }
       value.textContent=counter;
