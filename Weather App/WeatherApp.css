@@ -1,0 +1,34 @@
+:root {
+  background: #575656;
+}
+.card {
+  width: 90%;
+  height: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  text-align: center;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+}
+.search input {
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 25px;
+  width: 30%;
+  border-radius: 30px;
+  flex: 1;
+  margin: 16px;
+  border: 0;
+  outline: 0;
+}
+.search button {
+  background: #ebfffc;
+  color: #555;
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+}
