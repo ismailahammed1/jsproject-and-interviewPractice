@@ -3,12 +3,27 @@
 }
 .card {
   width: 50%;
-  height: 470px;
+
+  max-height: 470px;
+  min-height: 50px;
   background: linear-gradient(135deg, #00feba, #5b548a);
   text-align: center;
   margin: 30px auto 0;
   border-radius: 20px;
   padding: 40px 35px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.card.expanded {
+  animation: expandCard 0.5s forwards;
+}
+@keyframes expandCard {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 470px;
+  }
 }
 .search input {
   background: #ebfffc;
@@ -78,4 +93,8 @@
 .wind {
   font-size: 28px;
   margin-top: -6px;
+}
+
+.weather {
+  display: none;
 }

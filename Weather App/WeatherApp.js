@@ -5,8 +5,11 @@ const searchBox=document.querySelector(".search input")
 const searchBtn=document.querySelector(".search button")
 const weatherIcon= document.querySelector(".weather-icon")
 async function checkWeather(city) {
+    const weatherCard = document.querySelector(".weather");
+    
     if (!city) {
-     
+
+        weatherCard.style.display = "none";
         return; 
     }
 
@@ -18,27 +21,32 @@ async function checkWeather(city) {
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+"°C";
     document.querySelector(".humidity").innerHTML = `${data.main.humidity}%`;
     document.querySelector(".wind").innerHTML = `${data.wind.speed} km/h`;
-    if (data.weather[0].main=='clouds') {
-        weatherIcon.src="image/clouds.phn"
-    } else  if (data.weather[0].main=='drizzle') {
-        weatherIcon.src="image/drizzle.phn"
-    }else  if (data.weather[0].main=='humidity') {
-        weatherIcon.src="image/humidity.phn"
-    } else  if (data.weather[0].main=='mist') {
-        weatherIcon.src="image/mist.phn"
-    }
-     else  if (data.weather[0].main=='rain') {
-        weatherIcon.src="image/mist.phn"
-    }
-     else  if (data.weather[0].main=='wind') {
-        weatherIcon.src="image/wind.phn"
-    }
-     else {
-        
-    }
-        
     
+    if (data.weather[0].main === "Clouds") {
+        weatherIcon.src = "images/clouds.png";
+    } else if (data.weather[0].main === 'Drizzle') {
+        weatherIcon.src = "images/drizzle.png";
+    } else if (data.weather[0].main === 'Clear') {
+        weatherIcon.src = "images/clear.png";
+    } else if (data.weather[0].main === 'Rain') {
+        weatherIcon.src = "images/rain.png";
+    } else if (data.weather[0].main === 'Mist') {
+        weatherIcon.src = "images/mist.png";
+    } else if (data.weather[0].main === 'Thunderstorm') {
+        weatherIcon.src = "images/thunderstorm.png";
+    } else if (data.weather[0].main === 'Snow') {
+        weatherIcon.src = "images/snow.png";
+    } else if (data.weather[0].main == 'Haze') {
+        weatherIcon.src = "images/haze.png";
+    } else {
+      
+        weatherIcon.src = "";
+    }
+    
+
+    weatherCard.style.display = "block";
 }
+
 
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
@@ -49,5 +57,8 @@ searchBox.addEventListener("keyup", (event) => {
         checkWeather(searchBox.value);
     }
 });
-checkWeather()
+
+
+checkWeather("");
+
 
